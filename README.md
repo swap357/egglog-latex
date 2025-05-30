@@ -10,6 +10,12 @@ Convert an egglog rule to LaTeX format:
 from egglog_to_inference import convert_rule
 from IPython.display import display, Math
 
+eg2= '''
+rewrite(pow(x, Lit64(ival))).to(
+    mul(x, pow(x, Lit64(ival - 1))),
+    ival >= 1,
+)'''
+
 # Convert the rule to LaTeX
 result = convert_rule(eg2)
 print(eg2)
