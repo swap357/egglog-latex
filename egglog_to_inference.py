@@ -174,7 +174,7 @@ def format_multiline(items: List[str]) -> str:
     """Format multiple items with array environment if needed."""
     if len(items) > 1:
         content = ' \\\\ '.join(items)
-        return f"\\begin{{array}}{{l}} {content} \\end{{array}}"
+        return f"\\begin{{array}}{{c}} {content} \\end{{array}}"
     elif len(items) == 1:
         return items[0]
     else:
