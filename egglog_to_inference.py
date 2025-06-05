@@ -58,6 +58,13 @@ def clean_expression(expr: str) -> str:
         if not parts:
             return ""
 
+        # Check if this is a set operation
+        if parts[0] == 'set' and len(parts) == 3:
+            # Format set(a, b) as a → b
+            lhs = parse_expression(parts[1])
+            rhs = parse_expression(parts[2])
+            return f"{lhs} \\to {rhs}"
+
         # Format as function call
         func_name = format_identifier(parts[0])
         if len(parts) == 1:
